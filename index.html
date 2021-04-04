@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic UI</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <!-- <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@4.7.4/dist/ionicons/ionicons.esm.js"></script> -->
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@4.7.4/dist/ionicons/ionicons.js"></script>
+
+    <script type="module">
+        import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+        window.alertController = alertController;
+    </script>
+</head>
+<body>
+    <ion-button onclick="console.log('clicked!')">Button One</ion-button>
+    <ion-button onclick="handleButtonClick()">
+        <ion-icon slot="start" name="heart"></ion-icon>
+        Hello
+    </ion-button>
+    <ion-button fill="outline" color="secondary">
+        <ion-icon slot="icon-only" name="heart" color="danger"></ion-icon>
+    </ion-button>
+
+    <ion-list>
+        <ion-item>
+            <ion-icon slot="start" name="bicycle-outline"></ion-icon>
+            <p>Hello</p>
+        </ion-item>
+        <ion-item>
+            <ion-icon slot="start" name="bicycle-outline"></ion-icon>
+            <p>Goodbye</p>
+        </ion-item>
+    </ion-list>
+    <script>
+        async function handleButtonClick() {
+          const alert = await alertController.create({
+            header: 'Use this lightsaber?',
+            message: 'Do you agree to use this lightsaber to do good across the galaxy?',
+            buttons: ['Disagree', 'Agree']
+          });
+    
+          await alert.present();
+        }
+      </script>
+</body>
+</html>
